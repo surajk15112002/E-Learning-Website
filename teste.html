@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<style> body{
+  margin: 0%;
+}
+  #back_button{
+    background-color: rgb(39, 230, 39);
+    color: whitesmoke;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px ;
+    text-decoration: none;
+  }
+  
+  
+  #search_button{ 
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    background-color: rgb(40, 28, 212);
+    
+    
+  }
+
+
+</style>
+<style>
+  * { box-sizing: border-box; }
+body {
+  font: 16px Arial;
+}
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: rgb(11, 128, 245) !important;
+  color: #ffffff;
+}
+</style>
+<style>
+  .left_section{
+    background-attachment: scroll;
+    overflow-x:hidden ;
+    overflow-y: scroll;
+    position: absolute;
+    float: left;
+    width: 30%;
+    background-color: #f1f1f1;
+    height: 600px;
+    border-radius: 10px;
+
+  
+    
+  }
+  .menu{
+    border: #f1f1f1;
+    font-size: 25px;
+    
+  }
+  .left_section a{
+   margin-left: 5%;
+    color: #363333;
+    font-size: 20px;
+    display: inline-block;
+    width: 100%;
+  }
+  #htmlmenu,#javamenu{
+    display: none;
+  }
+  .right_section{
+    background-attachment: scroll;
+    overflow-x:hidden ;
+    overflow-y: scroll;
+    float: right;
+    width: 70%;
+    background-color:antiquewhite;
+   height: 600px;
+    
+
+  }
+  .right_section_content{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .right_section_content{
+   display: none;
+  }
+</style>
+
+
+
+
+<body>
+  <div class="all_body">
+    <div class="body1">
+    <center><h1>Tutorials</h1></center>
+    <a href="C:\Users\suraj\OneDrive\Desktop\our final\new web.html" id="back_button">Go to Homepage </a>
+    <hr>
+    <div class="search_bar_menu">
+     <center> <form autocomplete="off" >
+        <div class="autocomplete" style="width:300px;">
+          <input id="myInput" type="text" name="myCountry" placeholder="Search...">
+        </div>
+       <button id="search_button"><i class="material-icons">search</i></button> 
+      </form>
+      </center>
+      <hr>
+     </div>
+     </div>
+</div>
+<div class="left_section">
+
+  <button class="menu" onclick="displayhtmlmenu()">HTML</button>
+  <br><br>
+  <div id="htmlmenu">
+    <a href="#whatishtml">What is HTML</a><br><br>
+    <a href="#htmlelements">HTML elements</a><br><br>
+    <a href="#htmlattribute">HTML attributes</a><br><br>
+    <a href="#htmlformatting">HTML formatting</a><br><br>
+    <a href="#htmlwebpage">A simple HTML webpage code</a><br><br>
+    <a href="file:///C:/Users/suraj/OneDrive/Desktop/our%20final/video%20tutorials.html">Video Tutorials</a>
+  </div>
+  
+  <button class="menu" onclick="displayjavamenu()">JAVA</button>
+  <br><br>
+  <div id="javamenu">
+    <a href="#whatisjava">What is JAVA</a><br><br>
+    <a href="#applicationsofjava">Applications of Java</a><br><br>
+    <a href="#typesofjavaapplications">Types of Java Applications</a><br><br>
+    <a href="#examplesofjavastatements">Examples of JAVA statements</a><br><br>
+    <a href="#asimplejavaprogram">A simple JAVA program</a><br><br>
+    <a href="file:///C:/Users/suraj/OneDrive/Desktop/our%20final/video%20tutorials.html">Video Tutorials</a>
+  </div>
+
+</div>
+
+<div class="right_section">
+  <div class="right_section_content" id="htmlportion">
+    <h1 id="whatishtml">What is HTML?</h1>
+    <p>HTML is an acronym which stands for Hyper Text Markup Language which is used for creating web pages and web applications. Let's see what is meant by Hypertext Markup Language, and Web page.</p>
+
+     <p> Hyper Text: HyperText simply means "Text within Text." A text has a link within it, is a hypertext. Whenever you click on a link which brings you to a new webpage, you have clicked on a hypertext. HyperText is a way to link two or more web pages (HTML documents) with each other.</p>
+      
+     <p> Markup language: A markup language is a computer language that is used to apply layout and formatting conventions to a text document. Markup language makes text more interactive and dynamic. It can turn text into images, tables, links, etc.</p>
+      
+      <p> Page: A web page is a document which is commonly written in HTML and translated by a web browser. A web page can be identified by entering an URL. A Web page can be of the static or dynamic type. With the help of HTML only, we can create static web pages.</p>
+      
+      </p>
+      <br>
+      <h1 id="htmlelements">HTML elements</h1>
+      <p>An HTML file is made of elements. These elements are responsible for creating web pages and define content in that webpage. An element in HTML usually consist of a start tag &lt; tag name &gt;, close tag &lt;/tag name&gt; and content inserted between them. Technically, an element is a collection of start tag, attributes, end tag, content between them.</p>
+       <p>Void element: All the elements in HTML do not require to have start tag and end tag, some elements does not have content and end tag such elements are known as Void elements or empty elements. These elements are also called as unpaired tag.
+
+        Some Void elements are &lt;br&gt; (represents a line break) , &lt;hr&gt;(represents a horizontal line), etc.</p>
+      
+        
+        <br> <p><h2>Block-level and Inline HTML elements</h2>
+          For the default display and styling purpose in HTML, all the elements are divided into two categories:
+          <br>
+          Block-level element
+          <br>
+          Inline element
+          <br><br>
+         <h1> Block-level element:</h1>
+          These are the elements, which structure main part of web page, by dividing a page into coherent blocks.
+          A block-level element always start with new line and takes the full width of web page, from left to right.
+          These elements can contain block-level as well as inline elements.
+          Following are the block-level elements in HTML.
+          
+          &lt;address&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;blockquote&gt;, &lt;canvas&gt;, &lt;dd&gt;, &lt;div&gt;, &lt;dl&gt;, &lt;dt&gt;</p>
+          <br><br>
+          <h1><b>Inline elements:</b><br></h1>
+            Inline elements are those elements, which differentiate the part of a given text and provide it a particular function.<br>
+            These elements does not start with new line and take width as per requirement. <br>
+            The Inline elements are mostly used with other elements.<br>
+            &lt;a&gt;, &lt;abbr&gt;, &lt;acronym&gt;, &lt;b&gt;, &lt;bdo&gt;, &lt;big&gt;, &lt;br&gt;, &lt;button&gt;, &lt;cite&gt;, &lt;code&gt;, &lt;dfn&gt;, &lt;em&gt;, &lt;i&gt;, &lt;img&gt;, &lt;input&gt;</p>
+           <br>
+           <h1 id="htmlattribute">HTML Attributes</h1><br>
+             <p> HTML attributes are special words which provide additional information about the elements or attributes are the modifier of the HTML element.</p>
+            <p> <br> element or tag can have attributes, which defines the behaviour of that element.
+              <br>Attributes should always be applied with start tag.
+             <br> The Attribute should always be applied with its name and value pair.
+            <br>  The Attributes name and values are case sensitive, and it is recommended by W3C that it should be written in Lowercase only.
+              You can add multiple attributes in one HTML element, but need to give space between two attributes.<br>
+             <h2> The title attribute in HTML</h2>
+Description: The title attribute is used as text tooltip in most of the browsers. It display its text when user move the cursor over a link or any text. You can use it with any text or link to show the description about that link or text. In our example, we are taking this with paragraph tag and heading tag.
+<br><h2>The href attribute in HTML</h2>
+Description: The href attribute is the main attribute of <a> anchor tag. This attribute gives the link address which is specified in that link. The href attribute provides the hyperlink, and if it is blank, then it will remain in same page.
+          <br>
+         <h2> The src Attribute</h2>
+          The src attribute is one of the important and required attribute of <img> element. It is source for the image which is required to display on browser. This attribute can contain image in same directory or another directory. The image name or source should be correct else browser will not display the image.  </p> 
+        <br>
+        <h1 id="htmlformatting">HTML formatting</h1>
+        <p>
+          HTML Formatting is a process of formatting text for better look and feel. HTML provides us ability to format text without using CSS. There are many formatting tags in HTML. These tags are used to make text bold, italicized, or underlined. There are almost 14 options available that how text appears in HTML and XHTML.<br>
+          In HTML the formatting tags are divided into two categories: <br>
+          o	Physical tag: These tags are used to provide the visual appearance to the text.<br>
+
+o	Logical tag: These tags are used to add some logical or semantic value to the text. <br>
+
+<h2>1) Bold Text</h2>
+HTML&lt;b> and &lt;strong> formatting elementss Concepts in Java
+The HTML &lt;b> element is a physical tag which display text in bold font, without any logical importance. If you write anything within &lt;b>............&lt;/b> element, is shown in bold letters.
+<br>
+<h2>2) Italic Text</h2>
+<br>
+HTML &lt;i> and &lt;em> formatting elements <br>
+The HTML &lt;i> element is physical element, which display the enclosed content in italic font, without any added importance. If you write anything within &lt;i>............&lt;/i> element, is shown in italic letters.
+<br>
+<h2> 3) HTML Marked formatting </h2><br>
+If you want to mark or highlight a text, you should write the content within &lt;mark>.........&lt;/mark>. <br>
+<h2> 4) Underlined Text </h2><br>
+If you write anything within &lt;u>.........&lt;/u> element, is shown in underlined text. <br>
+<h2> 5) Strike Text  <br></h2>
+Anything written within &lt;strike>.......................&lt;/strike> element is displayed with strikethrough. It is a thin line which cross the statement.
+<br>
+<h2> 6) Monospaced Font</h2><br>
+If you want that each letter has the same width then you should write the content within &lt;tt>.............&lt;/tt> element. <br>
+Note: We know that most of the fonts are known as variable-width fonts because different letters have different width. (for example: 'w' is wider than 'i'). Monospaced Font provides similar space among every letter.
+<br> <h2>7) Superscript Text </h2> <br>
+If you put the content within &lt;sup>..............&lt;/sup> element, is shown in superscript; means it is displayed half a character's height above the other characters.
+<br>
+<br>
+<h1 id="htmlwebpage">A simple HTML webpage</h1><br>
+<iframe src="C:\Users\suraj\OneDrive\Desktop\html example page.html" frameborder="0" width="100%" height="400px" style="overflow-x: scroll; overflow-y: scroll;"></iframe><br><br>
+<h2>Code for the webpage.</h2>
+<iframe src="C:\Users\suraj\OneDrive\Desktop\our final\New Text Document.txt" frameborder="0" width="100%" height="400px"></iframe>
+        </p> 
+        
+        </div>
+
+
+        <div class="right_section_content" id="javaportion">
+
+         <h1 id="whatisjava"> What is Java?</h1><br>
+<p> Java is a programming language and a platform. Java is a high level, robust, object-oriented and secure programming language. <br>
+  Java was developed by Sun Microsystems (which is now the subsidiary of Oracle) in the year 1995. James Gosling is known as the father of Java. Before Java, its name was Oak. Since Oak was already a registered company, so James Gosling and his team changed the name from Oak to Java. <br>
+  Platform: Any hardware or software environment in which a program runs, is known as a platform. Since Java has a runtime environment (JRE) and API, it is called a platform. <br>
+  <br> <h1 id="applicationsofjava">Application</h1><br>
+According to Sun, 3 billion devices run Java. There are many devices where Java is currently used. Some of them are as follows: <br>
+1.	Desktop Applications such as acrobat reader, media player, antivirus, etc. <br>
+2.	Web Applications such as irctc.co.in, javatpoint.com, etc. <br>
+3.	Enterprise Applications such as banking applications. <br>
+4.	Mobile <br>
+5.	Embedded System <br>
+6.	Smart Card <br>
+7.	Robotics <br>
+8.	Games, etc. <br>
+
+<h1 id="typesofjavaapplications"> Types of Java Applications </h1><br>
+There are mainly 4 types of applications that can be created using Java programming: <br>
+
+ <h2>1) Standalone Application</h2><br>
+Standalone applications are also known as desktop applications or window-based applications. These are traditional software that we need to install on every machine. Examples of standalone application are Media player, antivirus, etc. AWT and Swing are used in Java for creating standalone applications.
+<br><h2> 2) Web Application </h2><br>
+An application that runs on the server side and creates a dynamic page is called a web application. Currently, Servlet, JSP, Struts, Spring, Hibernate, JSF, etc. technologies are used for creating web applications in Java.
+<br><h2> 3) Enterprise Application</h2><br>
+An application that is distributed in nature, such as banking applications, etc. is called an enterprise application. It has advantages like high-level security, load balancing, and clustering. In Java, EJB is used for creating enterprise applications.
+<br><h2> 4) Mobile Application </h2><br>
+An application which is created for mobile devices is called a mobile application. Currently, Android and Java ME are used for creating mobile applications.
+<br>
+<h1>Java Control Statements | Control Flow in Java</h1><br>
+Java compiler executes the code from top to bottom. The statements in the code are executed according to the order in which they appear. However, Java provides statements that can be used to control the flow of Java code. Such statements are called control flow statements. It is one of the fundamental features of Java, which provides a smooth flow of program. <br>
+Java provides three types of control flow statements. <br>
+<h3> 1.	Decision Making statements</h3><br>
+o	if statements <br>
+o	switch statement <br>
+<h3>2.	Loop statements</h3><br>
+o	do while loop <br>
+o	while loop <br>
+o	for loop <br>
+o	for-each loop <br>
+<h3>3.	Jump statements</h3><br>
+o	break statement <br>
+o	continue statement <br>
+
+<h1 id="examplesofjavastatements">Examples of JAVA statements</h1><br>
+<h2> 1) If Statement:</h2><br>
+In Java, the "if" statement is used to evaluate a condition. The control of the program is diverted depending upon the specific condition. The condition of the If statement gives a Boolean value, either true or false. In Java, there are four types of if-statements given below. <br>
+Difference between JDK, JRE, and JVM <br>
+1.	Simple if statement <br>
+2.	if-else statement <br>
+3.	if-else-if ladder <br>
+4.	Nested if-statement <br>
+<h3> 2) if-else statement</h3><br>
+The if-else statement is an extension to the if-statement, which uses another block of code, i.e., else block. The else block is executed if the condition of the if-block is evaluated as false.
+<br><h3> 3) if-else-if ladder:</h3><br>
+The if-else-if statement contains the if-statement followed by multiple else-if statements. In other words, we can say that it is the chain of if-else statements that create a decision tree where the program may enter in the block of code where the condition is true. We can also define an else statement at the end of the chain.
+<br><h3> 4. Nested if-statement </h3><br>
+In nested if-statements, the if statement can contain a if or if-else statement inside another if or else-if statement. <br>
+
+<h2> Switch Statement:</h2><br>
+In Java, Switch statements are similar to if-else-if statements. The switch statement contains multiple blocks of code called cases and a single case is executed based on the variable which is being switched. The switch statement is easier to use instead of if-else-if statements. It also enhances the readability of the program.
+Points to be noted about switch statement: <br>
+o	The case variables can be int, short, byte, char, or enumeration. String type is also supported since version 7 of Java <br>
+o	Cases cannot be duplicate <br>
+o	Default statement is executed when any of the case doesn't match the value of expression. It is optional. <br>
+o	Break statement terminates the switch block when the condition is satisfied. <br>
+It is optional, if not used, next case is executed. <br>
+o	While using switch statements, we must notice that the case expression will be of the same type as the variable. However, it will also be a constant value.
+<br>
+<h2> Loop Statements</h2><br>
+In programming, sometimes we need to execute the block of code repeatedly while some condition evaluates to true. However, loop statements are used to execute the set of instructions in a repeated order. The execution of the set of instructions depends upon a particular condition.
+<br> In Java, we have three types of loops that execute similarly. However, there are differences in their syntax and condition checking time.
+<br> 1.	for loop <br>
+2.	while loop <br>
+3.	do-while loop <br>
+<br>
+<h1 id="asimplejavaprogram">A simple java program</h1><br>
+<h2> Sum of Two Numbers in Java</h2><br>
+In Java, finding the sum of two or more numbers is very easy. First, declare and initialize two variables to be added. Another variable to store the sum of numbers. Apply mathematical operator (+) between the declared variable and store the result. The following program calculates and prints the sum of two numbers.
+<br>
+<iframe src="file:///C:/Users/suraj/OneDrive/Desktop/our%20final/New%20Text%20Document%20(2).txt" frameborder="0" width="100%" height="100%"></iframe>
+
+
+
+
+
+
+
+
+</p>
+
+        </div>
+</div>
+
+  
+</body>
+
+<script>
+  var countries = ["HTML","CSS","JAVA","Java Script","C++","C","JQuery","PHP","Java Script Example","CSS examples","How to make a navigation bar","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+  autocomplete(document.getElementById("myInput"), countries);
+  function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+/*execute a function when someone clicks in the document:*/
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+}
+
+
+function displayhtmlmenu(){
+  var x=document.getElementById("htmlmenu")
+  var y=document.getElementById("htmlportion")
+  if(x.style.display==="none"){
+    x.style.display="block";
+    y.style.display="block";
+  }
+  else{
+    x.style.display="none";
+    y.style.display="none";
+  }
+}
+
+function displayjavamenu(){
+  var x=document.getElementById("javamenu")
+  var y=document.getElementById("javaportion")
+  if(x.style.display==="none"){
+    x.style.display="block";
+    y.style.display="block";
+  }
+  else{
+    x.style.display="none";
+    y.style.display="none";
+  }
+}
+</script>
+</html>
